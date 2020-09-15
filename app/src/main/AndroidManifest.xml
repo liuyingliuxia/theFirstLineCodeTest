@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zeasn.thefirstlinecode">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".fourthchapter.QQActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".fourthchapter.WidgetActivity">
+
+        </activity>
+        <activity
+            android:name=".thirdchapter.DialogActivity"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity
+            android:name=".thirdchapter.LifeCycleActivity"
+            android:launchMode="singleTask"></activity>
+        <activity android:name=".thirdchapter.TestActivity" />
+        <activity
+            android:name=".thirdchapter.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance"
+            android:theme="@style/AppTheme.NoActionBar" />
+    </application>
+
+</manifest>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".thirdchapter.LifeCycleActivity">
+
+    <Button
+        android:id="@+id/btnNormal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/start_normal_activity"/>
+
+    <Button
+        android:id="@+id/btnDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/start_dialog_activity"/>
+
+    <Button
+        android:id="@+id/btnThis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/this_activity"/>
+
+</LinearLayout>
