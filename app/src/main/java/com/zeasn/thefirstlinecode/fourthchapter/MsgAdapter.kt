@@ -16,14 +16,7 @@ import java.lang.IllegalArgumentException
  * e-mail : miracle.lin@zeasn.com
  */
 
-class MsgAdapter (val msgList:List<Msg> ):RecyclerView.Adapter<RecyclerView.ViewHolder>(){
-    inner class LeftViewHolder(view : View) :RecyclerView.ViewHolder(view) {
-        val leftMsg: TextView = view.findViewById(R.id.tvLeftMsg)
-    }
-
-    inner class RightViewHolder(view : View) :RecyclerView.ViewHolder(view) {
-        val rightMsg: TextView = view.findViewById(R.id.tvRightMsg)
-    }
+class MsgAdapter (val msgList:List<Msg> ):RecyclerView.Adapter<MsgViewHolder>(){
 
     override fun getItemViewType(position: Int): Int {
         val msg = msgList[position]
@@ -38,12 +31,11 @@ class MsgAdapter (val msgList:List<Msg> ):RecyclerView.Adapter<RecyclerView.View
         RightViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MsgViewHolder, position: Int) {
         val msg= msgList[position]
         when(holder){
             is LeftViewHolder -> holder.leftMsg.text = msg.content
             is RightViewHolder -> holder.rightMsg.text = msg.content
-            else -> throw IllegalArgumentException()
         }
     }
 

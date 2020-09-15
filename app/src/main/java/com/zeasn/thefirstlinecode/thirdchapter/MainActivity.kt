@@ -34,8 +34,11 @@ class MainActivity : BaseActivity() {
            // val intent=Intent(this , TestActivity::class.java)
            // startActivityForResult(intent , 1 )
             //返回生命周期界面
-            val intent=Intent(this , TestActivity::class.java)
-            startActivity(intent)
+          /*  val intent=Intent(this , TestActivity::class.java)
+            startActivity(intent)*/
+            //第六章 强制下线
+            val intent = Intent(".FORCE_OFFLINE")
+            sendBroadcast(intent)
         }
     }
 
