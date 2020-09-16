@@ -10,6 +10,12 @@
         android:layout_height="wrap_content"
         android:text="@string/send_request" />
 
+    <Button
+        android:id="@+id/btnRetrofit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/retrofit" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">

@@ -22,4 +22,11 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="send_broadcast">发送广播</string>
     <string name="send_request">Send Request</string>
+    <string name="retrofit">Retrofit Test</string>
+    <string name="save_data">Save Data</string>
+    <string name="restore_data">Restore Data</string>
+    <string name="account">Account:</string>
+    <string name="remember_pass">记住密码</string>
+    <string name="call10086">打电话给中国移动</string>
+    <string name="take_photo">拍照</string>
 </resources>

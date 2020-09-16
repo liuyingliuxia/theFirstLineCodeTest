@@ -1,9 +1,12 @@
 package com.zeasn.thefirstlinecode.eleventh
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.zeasn.thefirstlinecode.R
 import kotlinx.android.synthetic.main.activity_url.*
 import okhttp3.*
@@ -11,6 +14,11 @@ import org.json.JSONArray
 import org.xml.sax.InputSource
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserFactory
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.io.*
 import java.lang.Exception
 import java.lang.StringBuilder
@@ -26,6 +34,32 @@ class URLActivity : AppCompatActivity() {
         setContentView(R.layout.activity_url)
         sendRequestBtn.setOnClickListener {
             sendRequestWithHttpURLConnection()
+        }
+
+        btnRetrofit.setOnClickListener {
+            val retrofit = Retrofit.Builder()
+                .baseUrl("http://10.0.2.2/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+            val appService = retrofit.create(AppService::class.java)
+            appService.getAppData().enqueue(object : Callback<List<App>> {
+                @SuppressLint("LongLogTag")
+                override fun onResponse(call: Call<List<App>>, response: Response<List<App>>) {
+                    val list = response.body()
+                    if (list != null) {
+                        for (app in list) {
+                            Log.d("URLActivity with Retrofit ", "id is ${app.id}")
+                            Log.d("URLActivity with Retrofit ", "name is ${app.name}")
+                            Log.d("URLActivity with Retrofit ", "version is ${app.version}")
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<List<App>>, t: Throwable) {
+                    t.printStackTrace()
+                }
+
+            })
         }
     }
 
@@ -69,8 +103,10 @@ class URLActivity : AppCompatActivity() {
                     //解析XML
                     //parseXMLWithPull(responseData)
                     //parseXMLWithSAX(responseData)
-                    //解析Json
-                    parseJSONWithJSONObject(responseData)
+                    //用JSONObject解析Json
+                    // parseJSONWithJSONObject(responseData)
+                    //用GSON 解析Json
+                    parseJSONWithGSON(responseData)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -170,5 +206,18 @@ class URLActivity : AppCompatActivity() {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+    }
+
+    private fun parseJSONWithGSON(jsonData: String) {
+        val gson = Gson()
+        val typeOf = object : TypeToken<List<App>>() {}.type
+        val appList = gson.fromJson<List<App>>(jsonData, typeOf)
+        for (app in appList) {
+            Log.d("URLActivity with GSON ", "id is ${app.id}")
+            Log.d("URLActivity with GSON ", "name is ${app.name}")
+            Log.d("URLActivity with GSON ", "version is ${app.version}")
+        }
+
+
     }
 }
