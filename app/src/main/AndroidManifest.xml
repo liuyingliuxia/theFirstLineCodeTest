@@ -21,12 +21,11 @@
         android:theme="@style/AppTheme"
         tools:targetApi="n">
 
-
-        <!--第十一章-->
-        <activity android:name=".eleventh.URLActivity" />
-
-        <!--第十章-->
-        <activity android:name=".tenth.ServiceActivity">
+        <!--第十二章-->
+        <activity
+            android:name=".twelfth.MDActivity"
+            android:label="@string/title_activity_m_d"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,36 +33,21 @@
             </intent-filter>
         </activity>
 
-        <!--第九章-->
-        <activity android:name=".ninth.CameraActivity">
+        <!-- 第十一章 -->
+        <activity android:name=".eleventh.URLActivity" /> <!-- 第十章 -->
+        <activity android:name=".tenth.ServiceActivity"></activity> <!-- 第九章 -->
+        <activity android:name=".ninth.CameraActivity"></activity>
+        <activity android:name=".ninth.MyCameraActivity">
 
-        </activity>
-
-        <!--第八章-->
-        <activity android:name=".eighth.ContentProviderActivity">
-
-        </activity>
-
-        <!--第七章-->
-        <activity android:name=".seventh.SpActivity" />
-
-
-
-        <!--第六章-->
-        <activity android:name=".sixth.LoginActivity">
-
-        </activity>
-        <activity android:name=".sixth.BroadcastTestActivity" />
-
-        <!-- 第五章-->
+        </activity> <!-- 第八章 -->
+        <activity android:name=".eighth.ContentProviderActivity"></activity> <!-- 第七章 -->
+        <activity android:name=".seventh.SpActivity" /> <!-- 第六章 -->
+        <activity android:name=".sixth.LoginActivity"></activity>
+        <activity android:name=".sixth.BroadcastTestActivity" /> <!-- 第五章 -->
         <activity android:name=".fifthchapter.NewsActivity" />
-        <activity android:name=".fifthchapter.NewsContentActivity" />
-
-        <!--第四章-->
+        <activity android:name=".fifthchapter.NewsContentActivity" /> <!-- 第四章 -->
         <activity android:name=".fourthchapter.QQActivity" />
-        <activity android:name=".fourthchapter.WidgetActivity" />
-
-        <!--第三章-->
+        <activity android:name=".fourthchapter.WidgetActivity" /> <!-- 第三章 -->
         <activity
             android:name=".thirdchapter.DialogActivity"
             android:theme="@style/Theme.AppCompat.Dialog" />
@@ -71,15 +55,11 @@
             android:name=".thirdchapter.LifeCycleActivity"
             android:launchMode="singleTask" />
         <activity android:name=".thirdchapter.TestActivity" />
-
         <activity
             android:name=".thirdchapter.MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleInstance"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-
-        <!--广播接收者-->
+            android:theme="@style/AppTheme.NoActionBar" /> <!-- 广播接收者 -->
         <receiver
             android:name=".sixth.BootCompleteReceiver"
             android:enabled="true"
@@ -103,26 +83,24 @@
             <intent-filter>
                 <action android:name=".MY_BROADCAST" />
             </intent-filter>
-        </receiver>
-
-        <!--内容提供者-->
+        </receiver> <!-- 内容提供者 -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.zeasn.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
-
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
-        </provider>
-
-        <!--服务-->
-        <service android:name=".tenth.MyService"
-            android:exported="true"
-            android:enabled="true"/>
-
+        </provider> <!-- 服务 -->
+        <service
+            android:name=".tenth.MyService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".tenth.MyIntentService"
+            android:enabled="true"
+            android:exported="true" />
     </application>
-
 
 </manifest>

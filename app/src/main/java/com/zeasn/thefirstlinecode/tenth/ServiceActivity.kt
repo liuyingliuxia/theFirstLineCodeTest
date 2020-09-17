@@ -7,6 +7,7 @@ import android.content.ServiceConnection
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.IBinder
+import android.widget.Toast
 import com.zeasn.thefirstlinecode.R
 import kotlinx.android.synthetic.main.activity_service.*
 
@@ -45,8 +46,15 @@ class ServiceActivity : AppCompatActivity() {
         }
 
         btnUnbind.setOnClickListener {
-           unbindService(connection)
+            unbindService(connection)
 
+        }
+        //IntentService 已被废弃
+        btnStartIntentService.setOnClickListener {
+            Toast.makeText(this, "Thread is ${Thread.currentThread().name}", Toast.LENGTH_LONG)
+                .show()
+            val intent = Intent(this, ServiceActivity::class.java)
+            startService(intent)
         }
 
     }
