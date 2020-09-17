@@ -7,8 +7,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
         android:allowBackup="true"
@@ -19,24 +20,46 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="n">
+
+        <!--第九章-->
         <activity android:name=".ninth.CameraActivity">
+
+        </activity>
+
+        <activity android:name=".ninth.ServiceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--第八章-->
         <activity android:name=".eighth.ContentProviderActivity">
 
         </activity>
+
+        <!--第七章-->
         <activity android:name=".seventh.SpActivity" />
+
+        <!--第十一章-->
         <activity android:name=".eleventh.URLActivity" />
-        <activity android:name=".sixth.LoginActivity"></activity>
+
+        <!--第六章-->
+        <activity android:name=".sixth.LoginActivity">
+
+        </activity>
         <activity android:name=".sixth.BroadcastTestActivity" />
+
+       <!-- 第十五章-->
         <activity android:name=".fifthchapter.NewsActivity" />
         <activity android:name=".fifthchapter.NewsContentActivity" />
+
+        <!--第十四章-->
         <activity android:name=".fourthchapter.QQActivity" />
         <activity android:name=".fourthchapter.WidgetActivity" />
+
+        <!--第十三章-->
         <activity
             android:name=".thirdchapter.DialogActivity"
             android:theme="@style/Theme.AppCompat.Dialog" />
@@ -50,6 +73,7 @@
             android:launchMode="singleInstance"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <!--广播接收者-->
         <receiver
             android:name=".sixth.BootCompleteReceiver"
             android:enabled="true"
@@ -74,18 +98,25 @@
                 <action android:name=".MY_BROADCAST" />
             </intent-filter>
         </receiver>
-        
+
+        <!--内容提供者-->
         <provider
-            android:authorities="com.zeasn.thefirstlinecode.ninth.fileprovider"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="com.zeasn.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
 
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"/>
+                android:resource="@xml/file_paths" />
         </provider>
+
+        <!--服务-->
+        <service android:name=".ninth.MyService"
+            android:exported="true"
+            android:enabled="true"/>
+
     </application>
 
-    
+
 </manifest>

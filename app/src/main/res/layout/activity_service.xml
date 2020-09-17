@@ -5,21 +5,29 @@
     android:layout_height="match_parent" >
 
     <Button
-        android:id="@+id/takePhotoBtn"
+        android:id="@+id/btnStart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Take Photo" />
+        android:text="Start Service" />
 
     <Button
-        android:id="@+id/fromAlbumBtn"
+        android:id="@+id/btnStop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="From Album" />
+        android:text="Stop Service" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btnBind"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal" />
+        android:text="Bind Service" />
+
+    <Button
+        android:id="@+id/btnUnbind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Unbind Service" />
+
+
 
 </LinearLayout>
