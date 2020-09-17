@@ -6,8 +6,6 @@ import android.content.Intent
 import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.ResultReceiver
-import android.text.format.Time
 import android.util.Log
 import android.widget.Toast
 import com.zeasn.thefirstlinecode.R

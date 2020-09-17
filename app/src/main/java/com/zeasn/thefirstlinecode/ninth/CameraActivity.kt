@@ -2,6 +2,7 @@ package com.zeasn.thefirstlinecode.ninth
 
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
@@ -11,6 +12,8 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.zeasn.thefirstlinecode.R
 import kotlinx.android.synthetic.main.activity_camera.*
@@ -26,21 +29,36 @@ class CameraActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera)
         btnTakePhoto.setOnClickListener {
-            outputImage = File(externalCacheDir, "my_photo.jpg")
-            if (outputImage.exists()) {
-                outputImage.delete()
-            }
-            outputImage.createNewFile()
-            imageUri = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                FileProvider.getUriForFile(this, "com.zeasn.thefirstlinecode.ninth.fileprovider", outputImage)
-            } else {
-                Uri.fromFile(outputImage)
+            //申请拍照 授权
+            if(ContextCompat.checkSelfPermission(this ,
+                    android.Manifest.permission.CAMERA )!= PackageManager.PERMISSION_GRANTED ){
+                ActivityCompat.requestPermissions(this ,
+                    arrayOf(android.Manifest.permission.CAMERA), 1)
+
+            }else{
+               takePhoto()
             }
 
-            val intent = Intent("android.media.action.IMAGE_CAPTURE")
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri)
-            startActivityForResult(intent, takePhoto)
         }
+
+    }
+
+    private fun takePhoto(){
+
+        outputImage = File(externalCacheDir, "output_image.jpg")
+        if (outputImage.exists()) {
+            outputImage.delete()
+        }
+        outputImage.createNewFile()
+        imageUri = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            FileProvider.getUriForFile(this, "com.zeasn.thefirstlinecode.ninth.fileprovider", outputImage)
+        } else {
+            Uri.fromFile(outputImage)
+        }
+
+        val intent = Intent("android.media.action.IMAGE_CAPTURE")
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri)
+        startActivityForResult(intent, takePhoto)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
