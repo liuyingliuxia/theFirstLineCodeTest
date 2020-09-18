@@ -20,29 +20,31 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="n">
-
-        <!--第十二章-->
-        <activity
-            android:name=".twelfth.MDActivity"
-            android:label="@string/title_activity_m_d"
-            android:theme="@style/AppTheme.NoActionBar">
+        <!--第十三章-->
+        <activity android:name=".thirteenth.CounterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- 第十二章 -->
+        <activity
+            android:name=".twelfth.MDActivity"
+            android:label="@string/title_activity_m_d"
+            android:theme="@style/AppTheme">
 
-        <!-- 第十一章 -->
+        </activity>
+        <activity
+            android:name=".twelfth.FruitActivity"
+            android:theme="@style/FruitActivityTheme"></activity> <!-- 第十一章 -->
         <activity android:name=".eleventh.URLActivity" /> <!-- 第十章 -->
-        <activity android:name=".tenth.ServiceActivity"></activity> <!-- 第九章 -->
-        <activity android:name=".ninth.CameraActivity"></activity>
-        <activity android:name=".ninth.MyCameraActivity">
-
-        </activity> <!-- 第八章 -->
-        <activity android:name=".eighth.ContentProviderActivity"></activity> <!-- 第七章 -->
+        <activity android:name=".tenth.ServiceActivity" /> <!-- 第九章 -->
+        <activity android:name=".ninth.CameraActivity" />
+        <activity android:name=".ninth.MyCameraActivity" /> <!-- 第八章 -->
+        <activity android:name=".eighth.ContentProviderActivity" /> <!-- 第七章 -->
         <activity android:name=".seventh.SpActivity" /> <!-- 第六章 -->
-        <activity android:name=".sixth.LoginActivity"></activity>
+        <activity android:name=".sixth.LoginActivity" />
         <activity android:name=".sixth.BroadcastTestActivity" /> <!-- 第五章 -->
         <activity android:name=".fifthchapter.NewsActivity" />
         <activity android:name=".fifthchapter.NewsContentActivity" /> <!-- 第四章 -->
