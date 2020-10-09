@@ -9,12 +9,12 @@ import androidx.lifecycle.OnLifecycleEvent
 class MyObserver :LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun activityStart(){
-        Log.e("MyObserver-----" , "----------------------------开始！ ")
+        Log.e("MyObserver-----" , "------开始！ ")
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     fun activityStop() {
-        Log.e("MyObserver-----" , "-----------------------------停止！ ")
+        Log.e("MyObserver-----" , "------停止！ ")
     }
 
 }

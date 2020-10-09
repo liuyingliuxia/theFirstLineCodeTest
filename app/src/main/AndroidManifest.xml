@@ -20,24 +20,29 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="n">
-        <!--第十三章-->
+
+        <!-- 第十三章 -->
         <activity android:name=".thirteenth.CounterActivity">
+
+        </activity>
+
+        <activity android:name=".thirteenth.RoomActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <!-- 第十二章 -->
         <activity
             android:name=".twelfth.MDActivity"
             android:label="@string/title_activity_m_d"
-            android:theme="@style/AppTheme">
-
-        </activity>
+            android:theme="@style/AppTheme"></activity>
         <activity
             android:name=".twelfth.FruitActivity"
-            android:theme="@style/FruitActivityTheme"></activity> <!-- 第十一章 -->
+            android:theme="@style/FruitActivityTheme" /> <!-- 第十一章 -->
         <activity android:name=".eleventh.URLActivity" /> <!-- 第十章 -->
         <activity android:name=".tenth.ServiceActivity" /> <!-- 第九章 -->
         <activity android:name=".ninth.CameraActivity" />
